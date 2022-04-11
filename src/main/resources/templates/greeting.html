@@ -8,17 +8,53 @@
 <body class="container">
     <h1>Form</h1>
     <form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
-        <p>Id: <input type="text" th:field="*{id}" /></p>
-        <p>Message: <input type="text" th:field="*{content}" /></p>
-        <p><input class="btn btn-primary" type="submit" value="Submit" /> <input class="btn btn-warning" type="reset" value="Reset" /></p>
-        <ul class="list-group">
-            <li th:each="greetingType : ${allGreetingTypes}"
-                class="list-group-item">
-                <input type="radio" th:field="*{type}" th:value="${greetingType}"/>
-                <label th:for="${greetingType}"
-                       th:text="${greetingType}" />
-            </li>
-        </ul>
+        <p>
+            Id: <input type="text" th:field="*{id}" />
+        </p>
+        <p>
+            Message: <input type="text" th:field="*{content}" />
+        </p>
+
+        <div class="row">
+            <ul class="list-group col">
+                <li
+                        th:each="greetingType : ${allTypes}"
+                        class="list-group-item"
+                >
+                    <input
+                            type="radio"
+                            th:field="*{type}"
+                            th:value="${greetingType}"
+                    />
+                    <label
+                            th:for="${greetingType}"
+                            th:text="${greetingType}"
+                    />
+                </li>
+            </ul>
+
+            <ul class="list-group col">
+                <li
+                        th:each="greetingType : ${allTypes}"
+                        class="list-group-item"
+                >
+                    <input
+                            type="checkbox"
+                            th:field="*{types}"
+                            th:value="${greetingType}"
+                    />
+                    <label
+                            th:for="${greetingType}"
+                            th:text="${greetingType}"
+                    />
+                </li>
+            </ul>
+        </div>
+
+        <p class="mt-2">
+            <input class="btn btn-primary" type="submit" value="Submit" />
+            <input class="btn btn-warning" type="reset" value="Reset" />
+        </p>
     </form>
 </body>
 </html>

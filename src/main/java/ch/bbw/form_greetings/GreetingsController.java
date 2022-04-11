@@ -12,7 +12,7 @@ import java.util.List;
 
 @Controller
 public class GreetingsController {
-    private ArrayList<Greeting> allGreetings = new ArrayList<>();
+    private ArrayList<Greeting> allGreetings = new ArrayList<>(); // data that has been entered
 
     @GetMapping("/greeting")
     public String greetingForm(Model model) {
@@ -29,7 +29,7 @@ public class GreetingsController {
         return "result";
     }
 
-    @ModelAttribute("allGreetingTypes")
+    @ModelAttribute("allTypes")
     public List<String> populateGreetingTypes(@ModelAttribute Greeting greeting) {
         return Arrays.asList( greeting.getAllTypes() );
     }

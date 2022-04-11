@@ -10,10 +10,12 @@
     <p th:text="'id: ' + ${greeting.id}" />
     <p th:text="'content: ' + ${greeting.content}" />
     <a class="btn btn-primary" href="/greeting">Submit another message</a>
-    <h2>All Greetings</h2>
-    <ul class="list-group">
+
+    <h2 class="mt-3">All Greetings</h2>
+    <ul class="list-group mb-3">
         <li class="list-group-item" th:each="greeting : ${allGreetings}">
             <span class="badge bg-primary" th:text="${greeting.type}"></span>
+            <span class="badge bg-secondary me-1" th:each="type : ${greeting.types}" th:text="${type}"></span>
             <span th:text="${greeting.content}"></span><br>
             <span class="blockquote-footer" th:text="${greeting.id}"></span>
         </li>
