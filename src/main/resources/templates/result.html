@@ -16,7 +16,10 @@
         <li class="list-group-item" th:each="greeting : ${allGreetings}">
             <span class="badge bg-primary" th:text="${greeting.type}"></span>
             <span class="badge bg-secondary me-1" th:each="type : ${greeting.types}" th:text="${type}"></span>
-            <span th:text="${greeting.content}"></span><br>
+
+            <span th:text="${greeting.content}"></span>
+            <span class="float-end" th:text="${greeting.receiveTime}"></span><br>
+
             <span class="blockquote-footer" th:text="${greeting.id}"></span>
         </li>
     </ul>

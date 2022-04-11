@@ -22,7 +22,9 @@ public class GreetingsController {
 
     @PostMapping("/greeting")
     public String greetingSubmit(Model model, @ModelAttribute Greeting greeting) {
+        greeting.setReceiveTime();
         allGreetings.add(greeting);
+
         model.addAttribute("greeting", greeting);
         model.addAttribute("allGreetings", allGreetings);
 

@@ -1,8 +1,11 @@
 package ch.bbw.form_greetings;
 
+import java.time.LocalDateTime;
+
 public class Greeting {
     private long id;
     private String content;
+    private LocalDateTime receiveTime;
     private String type;
     private String[] types;
     private String[] allTypes = {"heart", "friendly", "business", "family", "sporty"};
@@ -18,6 +21,12 @@ public class Greeting {
     }
     public void setContent(String content) {
         this.content = content;
+    }
+    public String getReceiveTime() {
+        return receiveTime.toString();
+    }
+    public void setReceiveTime() {
+        this.receiveTime = LocalDateTime.now();
     }
     public String getType() {
         return type;
